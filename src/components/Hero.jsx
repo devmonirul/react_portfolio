@@ -1,8 +1,66 @@
 import React from 'react'
+import profileImg from '../assets/profile.avif'
+import { motion } from 'framer-motion'
+import { fadeInUp, nameTag, transitions } from '../utils/animations'   
 
 export const Hero = () => {
   return (
-    <div>Hero</div>
+    <div className='flex flex-col items-center justify-center min-h-[70vh] text-center'>
+      {/* image and name animation */}
+      <div>
+        <div>
+          <div className='relative mb-8'>
+            {/* gradient effect */}
+            <div className='absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-full blur-xl'>
+
+            </div>
+
+            {/* static portfolio image */}
+            <div className='relative'>
+              <img src={profileImg} alt="Profile Image" className='w-32 h-32 rounded-full relative z-10' />
+            </div>
+
+            {/* animated name */}
+            <motion.div
+            
+            initial={nameTag.initial}
+            animate={nameTag.animate}
+            transition={nameTag.transition}
+            style={{
+              transformOrigin: 'center center'
+            }}
+
+            className='absolute -rotate-3 -top-0 -right-28 z-30 bg-white text-black px-4 py-2 rounded-full shadow-lg'>
+              <p className='text-sm font-medium'>Monirul Islam 👋</p>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* title */}
+      <motion.h1
+
+      variants={fadeInUp}
+      initial="initial"
+      animate="animate"
+      transition={{...transitions.default, delay: 0.4}}
+
+      className='md:text-5xl text-3xl px-2 md:px-0 font-medium mb-4 max-w-xl '>
+        <span className='bg-gradient-to-r from-white via-gray-300 to-gray-500 text-transparent bg-clip-text'>Building digital </span> <br />
+        <span className='bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 text-transparent bg-clip-text'>products, brands, and </span> <br />
+        <span className='bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 text-transparent bg-clip-text'>experience.</span>
+        </motion.h1>
+
+      {/* btn */}
+      <motion.button
+      
+      variants={fadeInUp}
+      initial="initial"
+      animate="animate"
+      transition={{...transitions.default, delay: 0.6}}
+      
+      className='mt-8 py-4 px-12 border bg-[#1A1A1A] border-gray-600 text-gray-600 hover:border-gray-400 hover:text-white transition-colors rounded-full cursor-pointer'>Latest Shots</motion.button>
+    </div>
   )
 }
 

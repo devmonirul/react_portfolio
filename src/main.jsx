@@ -10,10 +10,12 @@ import { Home } from './pages/Home.jsx';
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route element={<App />} />
+      <Route element={<App/>}>
       <Route path="/" element={<Home/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/projects" element={<Projects/>} />
+      </Route>
+
     </Routes>
   </BrowserRouter>,
 )
